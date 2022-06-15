@@ -14,10 +14,19 @@ class profile::puppet::puppetserver {
   ]
 
   class { 'puppetdb':
-    #node_ttl       => '0d',
-    #node_purge_ttl => '1d',
-    #ssl_protocols  => 'TLSv1.3,TLSv1.2',
-    #cipher_suites  => join($allow_ciphers, ','),
+    node_ttl       => '0d',
+    node_purge_ttl => '1d',
+    ssl_protocols  => 'TLSv1.3,TLSv1.2',
+    cipher_suites  => join($allow_ciphers, ','),
   }
+
+  # Configure master without Foreman integration
+  class { '::puppet':
+    server                => true,
+    server_foreman        => false,
+    server_reports        => 'store',
+    server_external_nodes => '',
+  }
+
   # resources
 }
