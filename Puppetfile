@@ -5,7 +5,7 @@
 
 mod 'puppetlabs/ntp', '9.1.1'
 mod 'puppetlabs/apt', '8.4.0'
-mod 'puppetlabs/postgresql', '7.5.0'
+mod 'puppetlabs/postgresql', '8.0.0'
 mod 'puppetlabs/puppetdb', '7.10.0'
 mod 'theforeman/puppet', '16.2.0'
 mod 'puppetlabs/stdlib', '8.2.0'
