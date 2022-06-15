@@ -1,17 +1,16 @@
-forge 'https://forge.puppet.com'
+# This Puppetfile is managed by Bolt. Do not edit.
+# For more information, see https://pup.pt/bolt-modules
 
-# Modules from the Puppet Forge
-# Versions should be updated to be the latest at the time you start
-#mod 'puppetlabs/inifile', '5.0.1'
-#mod 'puppetlabs/stdlib',  '7.0.1'
-#mod 'puppetlabs/concat',  '7.0.1'
+# The following directive installs modules to the managed moduledir.
 
-# Modules from Git
-# Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
-#mod 'apache',
-#  git:    'https://github.com/puppetlabs/puppetlabs-apache',
-#  commit: '1b6f89afdde0df7f9433a163d5c4b5328eac5779'
-
-#mod 'apache',
-#  git:    'https://github.com/puppetlabs/puppetlabs-apache',
-#  branch: 'docs_experiment'
+mod 'puppetlabs/ntp', '9.1.1'
+mod 'puppetlabs/apt', '8.4.0'
+mod 'puppetlabs/postgresql', '7.5.0'
+mod 'puppetlabs/puppetdb', '7.10.0'
+mod 'theforeman/puppet', '16.2.0'
+mod 'puppetlabs/stdlib', '8.2.0'
+mod 'puppetlabs/concat', '7.2.0'
+mod 'puppetlabs/inifile', '5.3.0'
+mod 'puppetlabs/firewall', '3.5.0'
+mod 'puppet/extlib', '6.0.0'
+mod 'puppet/systemd', '3.9.0'
