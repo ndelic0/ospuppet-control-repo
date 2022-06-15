@@ -17,7 +17,7 @@ class profile::puppet::puppetserver {
     node_ttl       => '0d',
     node_purge_ttl => '1d',
     ssl_protocols  => 'TLSv1.3,TLSv1.2',
-    cipher_suites  => join($allow_ciphers, ','),
+    #cipher_suites  => join($allow_ciphers, ','),
   }
   # resources
 }
