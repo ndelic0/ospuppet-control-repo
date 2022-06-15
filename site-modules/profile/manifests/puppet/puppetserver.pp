@@ -4,6 +4,8 @@
 #
 class profile::puppet::puppetserver {
   # Configure puppetdb and its underlying database
-  class { 'puppetdb': }
+  class { 'puppetdb':
+    node_ttl => '0d', 
+  }
   # resources
 }
