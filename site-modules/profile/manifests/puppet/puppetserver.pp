@@ -2,7 +2,12 @@
 # Class: profile::puppet::puppetserver
 #
 #
-class profile::puppet::puppetserver {
+class profile::puppet::puppetserver (
+  String $puppet_server                  = 'puppet.localdomain',
+  Boolean $autosign                      = true,
+  Optional[Array[String]] $dns_alt_names = undef,
+  Optional[String] $environment          = undef,
+) {
   # Configure puppetdb and its underlying database
   $allow_ciphers = [
     'TLS_AES_256_GCM_SHA384',
@@ -20,17 +25,23 @@ class profile::puppet::puppetserver {
     cipher_suites  => join($allow_ciphers, ','),
   }
 
+  class { 'puppet::server::puppetdb':
+    server => $puppet_server,
+  }
+
   # Configure master without Foreman integration
   class { '::puppet':
+    autosign                               => $autosign,
+    dns_alt_names                          => $dns_alt_names,
+    environment                            => $environment,
+    hiera_config                           => "${settings::confdir}/hiera.yaml",
+    runmode                                => 'unmanaged',
     server                                 => true,
     server_foreman                         => false,
     server_reports                         => 'store',
     server_external_nodes                  => '',
     server_cipher_suites                   => $allow_ciphers,
-    additional_settings                    => {
-      color  => 'false',
-      strict => 'off',
-    },
+    additional_settings                    => { color  => 'false', strict => 'off', },
     server_ssl_protocols                   => [ 'TLSv1.3', 'TLSv1.2' ],
     server_check_for_updates               => false,
     server_common_modules_path             => [ '/etc/puppetlabs/code/modules'  ],
