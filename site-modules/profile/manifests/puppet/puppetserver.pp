@@ -26,6 +26,7 @@ class profile::puppet::puppetserver {
     server_foreman        => false,
     server_reports        => 'store',
     server_external_nodes => '',
+    cipher_suites         => $allow_ciphers,
   }
 
   # resources
