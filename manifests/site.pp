@@ -29,3 +29,6 @@ node default {
   # Example:
   #   class { 'my_class': }
 }
+
+# classify nodes via hiera
+contain lookup('classes', Array[String], 'unique', [])
