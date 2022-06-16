@@ -22,11 +22,20 @@ class profile::puppet::puppetserver {
 
   # Configure master without Foreman integration
   class { '::puppet':
-    server                => true,
-    server_foreman        => false,
-    server_reports        => 'store',
-    server_external_nodes => '',
-    server_cipher_suites  => $allow_ciphers,
+    server                                 => true,
+    server_foreman                         => false,
+    server_reports                         => 'store',
+    server_external_nodes                  => '',
+    server_cipher_suites                   => $allow_ciphers,
+    additional_settings                    => {
+      color  => 'false',
+      strict => 'off',
+    },
+    server_ssl_protocols                   => [ 'TLSv1.3', 'TLSv1.2' ],
+    server_check_for_updates               => false,
+    server_common_modules_path             => [ '/etc/puppetlabs/code/modules'  ],
+    server_compile_mode                    => jit,
+    server_environment_class_cache_enabled => true,
   }
 
   # resources
