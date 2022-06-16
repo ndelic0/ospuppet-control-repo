@@ -36,6 +36,13 @@ class profile::puppet::puppetserver {
     server_common_modules_path             => [ '/etc/puppetlabs/code/modules'  ],
     server_compile_mode                    => jit,
     server_environment_class_cache_enabled => true,
+    server_jvm_min_heap_size               => '512m',
+    server_jvm_max_heap_size               => '512m',
+    server_max_requests_per_instance       => 100000,
+    server_puppetserver_trusted_agents     => $facts['fqdn'],
+    server_ruby_load_paths                 => [ '/opt/puppetlabs/puppet/lib/ruby/vendor_ruby', '/opt/puppetlabs/puppet/cache/lib' ],
+    server_strict_variables                => true,
+    show_diff                              => true,
   }
 
   # resources
