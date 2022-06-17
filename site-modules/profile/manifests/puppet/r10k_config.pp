@@ -1,5 +1,5 @@
 # class to configure hiera
-class profile::puppet::hiera {
+class profile::puppet::r10k_config {
   $agent_service  = 'puppet'
   $agent_bin      = '/opt/puppetlabs/bin/puppet'
   $server_service = 'puppetserver'
