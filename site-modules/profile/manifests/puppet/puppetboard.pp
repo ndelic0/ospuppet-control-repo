@@ -3,7 +3,7 @@ class profile::puppet::puppetboard {
   class {'puppetboard':
     manage_git          => true,
     manage_virtualenv   => true,
-    reports_count       => '30',
+    reports_count       => 30,
     default_environment => '*',
   }
   class { 'apache':
