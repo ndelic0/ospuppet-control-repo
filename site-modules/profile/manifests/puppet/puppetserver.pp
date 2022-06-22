@@ -38,7 +38,7 @@ class profile::puppet::puppetserver (
     runmode                                => 'unmanaged',
     server                                 => true,
     server_foreman                         => false,
-    server_reports                         => 'store',
+    server_reports                         => 'puppetdb',
     server_external_nodes                  => '',
     server_cipher_suites                   => $allow_ciphers,
     additional_settings                    => { color  => 'false', strict => 'off', },
